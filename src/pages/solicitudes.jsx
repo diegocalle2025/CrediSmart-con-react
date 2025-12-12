@@ -141,6 +141,7 @@ export const Solicitudes = () => {
       };
 
       const ref = doc(db, "solicitudes", id);
+      
 
       // Mostrar loading
       Swal.fire({
@@ -218,7 +219,7 @@ export const Solicitudes = () => {
       </div>
 
       {/* MODAL DE ACTUALIZAR */}
-      
+
       {modalOpen && (
         <div className="modal">
           <div className="modal-content">
