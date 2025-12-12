@@ -40,6 +40,7 @@ export const Solicitudes = () => {
   }, []);
 
   // Abrir modal con datos precargados
+  
   const abrirModalActualizar = (s) => {
     setSolicitudActual(s);
     setModalOpen(true);
@@ -75,7 +76,7 @@ export const Solicitudes = () => {
   };
 
   // Eliminar solicitud (función separada y disponible para los botones)
-  
+
   const eliminarSolicitud = async (solicitud) => {
     Swal.fire({
       title: "¿Eliminar solicitud?",
