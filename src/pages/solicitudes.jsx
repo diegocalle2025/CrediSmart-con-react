@@ -211,13 +211,14 @@ export const Solicitudes = () => {
               onClick={() => eliminarSolicitud(s)}
             >
               Eliminar
-              
+
             </button>
           </div>
         ))}
       </div>
 
       {/* MODAL DE ACTUALIZAR */}
+      
       {modalOpen && (
         <div className="modal">
           <div className="modal-content">
