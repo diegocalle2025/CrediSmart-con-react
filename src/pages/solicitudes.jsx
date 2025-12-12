@@ -203,6 +203,7 @@ export const Solicitudes = () => {
               onClick={() => abrirModalActualizar(s)}
             >
               Actualizar
+              
             </button>
 
             <button
