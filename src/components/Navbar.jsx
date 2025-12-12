@@ -33,7 +33,7 @@ export const Navbar = () => {
       case '/solicitar':
         return 'Completa tu solicitud en minutos';
       default:
-        return '';
+        return 'Visualiza y gestiona tus solicitudes de crédito';
     }
   }
 
@@ -67,7 +67,15 @@ export const Navbar = () => {
       Solicitar Crédito
     </Link>
   </li>
+  <li>
+  <Link to="/solicitudes" className={`nav ${isActive('/solicitudes')}`}>
+    Solicitudes
+  </Link>
+</li>
+
 </ul>
+
+
 
       </div>
     </header>

@@ -88,9 +88,6 @@ React.useEffect(() => {
     setSimFee(0);
   };
 
-
-
-
   return (
     <>
       
@@ -281,7 +278,7 @@ React.useEffect(() => {
 
   <button 
   onClick={resetSimulation} 
-  className="filter"
+  className="btn"
   
 >
   Limpiar simulador

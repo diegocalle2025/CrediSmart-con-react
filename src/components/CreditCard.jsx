@@ -10,7 +10,8 @@ export const CreditCard = ({ credit }) => {
     minAmount,
     maxAmount,
     interestRate,
-    maxTerm,    
+    maxTerm,
+    requirements,    
     icon
   } = credit;
 
@@ -19,7 +20,12 @@ export const CreditCard = ({ credit }) => {
     
     <div className="card">      
       <div className="card-media">
-        <img src={credit.image} alt={credit.name} className="icon" />
+        <img 
+  src={icon || "/img/default.png"} 
+  alt={name} 
+  className="icon" 
+/>
+
       </div>
      
       <div className="card-body">
@@ -27,7 +33,9 @@ export const CreditCard = ({ credit }) => {
         <p className="rate">Tasa: {interestRate}% mensual</p>
         <p className="amount">Monto: {minAmount} - {maxAmount}</p>
         <p className="term">Plazo máximo: {maxTerm} meses</p>
-        <p>{description}</p>
+        <p className="description"><strong>Descripción:</strong>{description}</p>
+        <p className="requirements"><strong>Requisitos:</strong> {requirements}</p>
+
 
         <div className="card-actions">
           <Link className="btn" to="/solicitar">

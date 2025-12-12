@@ -4,6 +4,9 @@ import datos from '../assets/img/datos.gif';
 import tarjeta from '../assets/img/tarjeta.gif';
 import laborales from '../assets/img/laborales.gif';
 import Swal from "sweetalert2";
+import { db } from "../firebase/config";
+import { collection, addDoc } from "firebase/firestore";
+
 
 
 export const Apply = () => {
@@ -49,13 +52,12 @@ const handleReset = (e) => {
   });
 };
 
-const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault();
 
-
-  
- for (let key in formData) {
-    if (formData[key].trim() === "") {
+  // Validar campos vacíos
+  for (let key in formData) {
+    if (String(formData[key]).trim() === "") {
       Swal.fire({
         icon: "error",
         title: "Campos incompletos",
@@ -65,29 +67,44 @@ const handleSubmit = (e) => {
     }
   }
 
-  Swal.fire({
-    icon: "success",
-    title: "Solicitud enviada",
-    text: "Tu solicitud fue enviada correctamente.",
-  }).then(() => {
-  e.target.reset();
-  setFormData({
-    nombre: "",
-    cedula: "",
-    email: "",
-    telefono: "",
-    tipoCredito: "Crédito Libre Inversión",
-    monto: "",
-    plazo: "12",
-    destino: "",
-    empresa: "",
-    cargo: "",
-    ingresos: "",
-  });
-  
-});
+  try {
+    // GUARDAR EN FIRESTORE
+    await addDoc(collection(db, "solicitudes"), {
+      ...formData,
+      fecha: new Date().toISOString()
+    });
 
+    Swal.fire({
+      icon: "success",
+      title: "Solicitud enviada",
+      text: "Tu solicitud fue enviada correctamente.",
+    });
+
+    // Reset
+    setFormData({
+      nombre: "",
+      cedula: "",
+      email: "",
+      telefono: "",
+      tipoCredito: "Crédito Libre Inversión",
+      monto: "",
+      plazo: "12",
+      destino: "",
+      empresa: "",
+      cargo: "",
+      ingresos: "",
+    });
+
+  } catch (error) {
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "Hubo un problema guardando la solicitud.",
+    });
+    console.error(error);
+  }
 };
+
 
   return (
     <div className="apply-page">
@@ -172,18 +189,21 @@ const handleSubmit = (e) => {
               />
             </label>
 
-            <label name="plazo"
-                    value={formData.plazo}
-                    onChange={handleChange}>
-              Plazo en meses
-              <select>
-                <option>12</option>
-                <option>24</option>
-                <option>36</option>
-                <option>48</option>
-                <option>60</option>
-              </select>
-            </label>
+            <label>
+  Plazo en meses
+  <select
+    name="plazo"
+    value={formData.plazo}
+    onChange={handleChange}
+  >
+    <option value="12">12</option>
+    <option value="24">24</option>
+    <option value="36">36</option>
+    <option value="48">48</option>
+    <option value="60">60</option>
+  </select>
+</label>
+
 
             <label className="full">
               Destino del crédito
@@ -232,7 +252,7 @@ const handleSubmit = (e) => {
                               
           <div className="form-actions">
             <button className="btn" type="submit">Enviar Solicitud</   button>
-            <button className="btn btn-outline" type="reset" onClick={handleReset}>
+            <button className="btn" type="reset" onClick={handleReset}>
           Limpiar Formulario
 </button>
           </div>

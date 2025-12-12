@@ -9,6 +9,8 @@ import { Home } from './pages/Home'
 import { Apply } from './pages/Apply'
 import Simulator from './pages/Simulator';
 //import { Simulator}  from './pages/Simulator'
+import { Solicitudes } from './pages/Solicitudes';
+
 
 
  function App() {
@@ -21,6 +23,7 @@ import Simulator from './pages/Simulator';
       <Route path='/' element={<Home/>}/>
       <Route path='/simulador' element={<Simulator/>}/>
       <Route path='/solicitar' element={<Apply/>}/>
+      <Route path='/solicitudes' element={<Solicitudes/>}/>
        </Routes>
 
        <div className="container-columnas">

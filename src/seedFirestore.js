@@ -10,7 +10,7 @@ const creditsData = [
             interestRate: 12.5,
             maxTerm: 60,
             requirements:"Debe ser mayor de 18 años, tener ingresos comprobables y buen historial crediticio.", 
-            icon:""
+            icon:"/img/tarjeta.gif"
     },
 
     {
@@ -22,7 +22,7 @@ const creditsData = [
         interestRate: 9.8,
         maxTerm: 60,
         requirements:"Debe ser mayor de 18 años, tener ingresos comprobables y buen historial crediticio.", 
-        icon:""
+        icon:"/img/carro-nuevo.gif"
         },
     
         {
@@ -34,7 +34,7 @@ const creditsData = [
         interestRate: 7.2,
         maxTerm: 240,
         requirements:"Debe ser mayor de 18 años, tener ingresos comprobables y buen historial crediticio.", 
-        icon:""
+        icon:"/img/bungalow-sobre-el-agua.gif"
         },
     
         {
@@ -46,7 +46,7 @@ const creditsData = [
         interestRate: 6.0,
         maxTerm: 48,
         requirements:"Debe ser mayor de 18 años, tener ingresos comprobables y buen historial crediticio.", 
-        icon:""
+        icon:"/img/birrete.gif"
         },
     
         {
@@ -58,7 +58,7 @@ const creditsData = [
         interestRate: 11.0,
         maxTerm: 72,
         requirements:"Debe ser mayor de 18 años, tener ingresos comprobables y buen historial crediticio.", 
-        icon:""
+        icon:"/img/empresa.gif"
         },
 ];
 
@@ -80,4 +80,4 @@ const seedFirestore = async () => {
 
 }
 
-seedFirestore();
+//seedFirestore();

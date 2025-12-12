@@ -5,8 +5,6 @@ import App from './App.jsx'
 
 //import './seedFirestore.js'
 
-
-
 const root = document.getElementById('root');
 
 ReactDOM.createRoot(root).render(

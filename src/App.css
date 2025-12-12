@@ -46,7 +46,7 @@ body{
   box-shadow:0 1px 6px rgba(16,24,40,0.06);
   position: sticky;
   top:0;
-  z-index:0;
+  z-index:9999;
 } 
 
 .header-inner{display:flex;
@@ -180,15 +180,27 @@ body{
   gap:10px;align-items:center;
 } 
 
-.btn{background:#14839e;
-  color:#fff;
-  padding:8px 12px;
-  border-radius:8px;
-  text-decoration:none;
-  border:none;
-  cursor:pointer;
-  display:inline-block;
-} 
+.btn {
+  background: #14839e;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.3s ease, transform 0.2s ease;
+  
+}
+
+.btn:hover {
+  background: #0f6b82;   /* color más oscuro */
+  transform: translateY(-3px); /* se eleva suavemente */
+}
+
+.btn:active {
+  transform: translateY(0px) scale(0.97);
+}
 
 .link{
   color:var(--muted);
@@ -482,34 +494,43 @@ textarea {
   }
 
   .container-columnas {
-  width: 100%;
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  color: #333;
-  font-family: Arial, sans-serif;
+   display: flex;
+   justify-content: space-between;   
+   padding: 40px;    
+   color: white;
+   background:linear-gradient(135deg,
+   var(--accent),#1285a2);
+   box-shadow:0 1px 6px rgba(16,24,40,0.06);
+   position: static;
+   top:0;z-index:10;
+   margin-top: 50px;  
+   max-width: 1900px;
+   height: auto;
+   gap: 20px;    
 }
 
-.container-columnas h3 {
-  font-size: 20px;
-  margin-bottom: 95px;
-  font-weight: 700;
-  color: white; 
+.col {
+    width: 33%;  
+}
+.col h3 {
+    font-size: 40px;  
+    margin-bottom: 15px;
+    margin-top: 5px; 
+}
+.col p {
+    font-size: 20px; 
+    margin: 6px 0;
+    cursor: pointer;
+    transition: 0.2s ease;
+    color: white;
+   
 }
 
-.container-columnas p {
-  margin: 6px 0;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.container-columnas p:hover {
+.container-columnas .col p:hover {
   color: #15f2e3;
   transform: translateX(3px);
 }
+
 
 .izquierda {
     text-align: left;    
@@ -526,6 +547,28 @@ textarea {
 .apply-page {
   margin-top: -50px;
 }
+
+.solicitudes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;               /* separación entre tarjetas */
+  margin-top: 20px;
+}
+
+.solicitud-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+  border: 1px solid #e5e7eb;
+  transition: transform 0.2s ease;
+  
+}
+
+.solicitud-card:hover {
+  transform: translateY(-3px);
+}
+
 
 @media (max-width: 900px) {
   .container-columnas {
@@ -588,7 +631,100 @@ textarea {
    .banner-contain .banner-video {
     max-height: 160%;
   } 
-
  
 }
+
+.modal-content select {
+  width: auto;
+}
+
+/* Fondo oscuro detrás del modal */
+.modal,
+.modal-confirm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px);
+  z-index: 999;
+}
+
+/* Caja del modal */
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  width: 380px;              
+  max-width: 90%;
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.25);
+  animation: fadeInScale 0.25s ease-out;
+}
+
+/* Animación */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Inputs */
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.btn-save {
+  flex: 1;
+  background: #2563eb;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  flex: 1;
+  background: #aaa;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-save:hover {
+  background: #1e4ecb;
+}
+
+.btn-cancel:hover {
+  background: #888;
+}
+
+.solicitud-card .btn {
+  margin-top: 6px;
+  margin-right: 10px;   
+}
+
 
