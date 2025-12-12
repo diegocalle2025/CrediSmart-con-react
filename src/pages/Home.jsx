@@ -21,7 +21,6 @@ export const Home = () => {
   const fetchCredits = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "credits"));
-      
       const data = querySnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
