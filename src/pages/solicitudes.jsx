@@ -26,6 +26,7 @@ export const Solicitudes = () => {
   });
 
   // Cargar solicitudes
+  
   useEffect(() => {
     const fetchSolicitudes = async () => {
       const querySnapshot = await getDocs(collection(db, "solicitudes"));
@@ -40,7 +41,7 @@ export const Solicitudes = () => {
   }, []);
 
   // Abrir modal con datos precargados
-  
+
   const abrirModalActualizar = (s) => {
     setSolicitudActual(s);
     setModalOpen(true);
