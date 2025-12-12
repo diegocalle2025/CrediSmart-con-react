@@ -284,7 +284,7 @@ export const Solicitudes = () => {
 
             <div className="modal-buttons">
               <button className="btn-save" onClick={guardarCambios}>Actualizar Registro</button>
-              <button className="btn-cancel" onClick={() => setModalOpen(false)}>Cancelar</button>
+              <button className="btn-cancel" onClick={() => setModalOpen(false)}>Cancelar</button>              
             </div>
           </div>
         </div>
