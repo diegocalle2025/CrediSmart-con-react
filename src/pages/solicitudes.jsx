@@ -75,6 +75,7 @@ export const Solicitudes = () => {
   };
 
   // Eliminar solicitud (función separada y disponible para los botones)
+  
   const eliminarSolicitud = async (solicitud) => {
     Swal.fire({
       title: "¿Eliminar solicitud?",
@@ -141,7 +142,7 @@ export const Solicitudes = () => {
       };
 
       const ref = doc(db, "solicitudes", id);
-      
+
 
       // Mostrar loading
       Swal.fire({
