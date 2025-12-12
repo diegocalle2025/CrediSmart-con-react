@@ -53,7 +53,7 @@ export const Solicitudes = () => {
       icon: "info",
       toast: true,
       position: "top-end",
-      timer: 1200,
+      timer: 4000,
       showConfirmButton: false
     });
   };
