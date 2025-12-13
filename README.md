@@ -77,9 +77,13 @@ export default defineConfig([
 
 **Curso:** Ingeniería Web I   
 
-**Descripción:** Este proyecto consiste en una plataforma web interactiva que permite a los usuarios consultar, filtrar y simular diferentes tipos de créditos ofrecidos por una entidad financiera. El sistema incluye una interfaz visual con tarjetas informativas para cada producto y un simulador dinámico de cuotas, donde el usuario selecciona el producto, ingresa el monto deseado y define el plazo en meses. Con estos datos, la aplicación calcula automáticamente la cuota mensual usando la fórmula de amortización estándar según la tasa real de cada crédito.
+**Descripción:** El proyecto consiste en una aplicación web de solicitudes de crédito desarrollada con React y Firebase. Su objetivo es permitir a los usuarios consultar los diferentes tipos de créditos, enviar una solicitud y gestionar esas solicitudes desde una interfaz administrativa.
 
-El objetivo del proyecto es brindar una experiencia rápida, clara y precisa para que los usuarios puedan comparar alternativas de financiación y tomar decisiones informadas antes de solicitar un crédito.
+La aplicación cuenta con una página principal (Home) donde se muestran los productos de crédito obtenidos desde Firebase, presentados en tarjetas informativas. También incluye una sección de solicitud (Apply) con un formulario que recoge datos personales, del crédito y laborales, valida que los campos estén completos y guarda la información en la base de datos.
+
+Además, existe un módulo de administración de solicitudes, donde se pueden visualizar, actualizar y eliminar las solicitudes registradas, todo conectado en tiempo real con Firestore y apoyado con alertas visuales para mejorar la experiencia del usuario.
+
+En general, el trabajo integra correctamente componentes reutilizables, manejo de estados, consumo de datos desde Firebase, validaciones básicas y una interfaz clara y funcional, cumpliendo con los objetivos de una plataforma digital de gestión de créditos.
 
  
 
@@ -92,6 +96,8 @@ Home.jsx        #Página principal - Catálogo de créditos
 simulador.jsx   #Página del simulador de crédito
 solicitar.jsx   #Formulario de solicitud
 App.css         #Hoja de estilos
+config.js       #Estructura de firebase
+seedFirestore   #Array con los datos  
 main.jsx        #Punto de montaje principal del proyecto
 README.md       #Documento de información del proyecto
 
@@ -113,3 +119,4 @@ README.md       #Documento de información del proyecto
  [inicio](./src/assets/img/inicio.png)
  [simulador](./src/assets/img/simulador.png)
  [solicitar](./src/assets/img/solicitar.png)
+ [solicitar](./src/assets/img/solicitudes.png)
